@@ -1,0 +1,17 @@
+services:
+  rustflare:
+    build: ..
+    container_name: rustflare
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - certs:/certs
+      - ./config.yaml:/config.yaml
+
+volumes:
+  certs:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/opt/appdata/rustflare/certs'
