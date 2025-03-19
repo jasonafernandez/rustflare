@@ -1,0 +1,20 @@
+acme:
+  ca_url: "https://acme.zerossl.com/v2/DV90"
+  eab:
+    key_id: "YOUR_ZEROSSL_KEY_ID"
+    mac_key: "YOUR_ZEROSSL_MAC_KEY"
+  domains:
+    - "your.first.domain"
+    - "your.second.domain"
+  renewal_interval_days: 30
+
+cloudflare:
+  api_token: "YOUR_CLOUDFLARE_API_TOKEN"
+  zone_id: "YOUR_CLOUDFLARE_ZONE_ID"
+  api_base_url: "https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records"
+  dns_record_ttl: 120
+
+storage:
+  certs_base_path: "/certs"
+  cert_file_name: "fullchain.pem"
+  key_file_name: "privkey.pem"
