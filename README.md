@@ -9,6 +9,13 @@ A lightweight Rust-based service for automating TLS certificate issuance and ren
 - Supports multiple domains and subdomains
 - Cloudflare DNS integration
 
+## 📌 Compatibility
+
+Rustflare integrates seamlessly with the [rust-rpxy](https://github.com/junkurihara/rust-rpxy) reverse proxy:
+
+- Rustflare automatically manages TLS certificates and stores them in a shared directory.
+- Configure rust-rpxy to directly read certificates from this shared location, enabling TLS termination effortlessly.
+
 ## 📁 Project Structure
 
 See [docker/compose.yaml](docker/compose.yaml) and [docker/config.example.yaml](docker/config.example.yaml) to get started quickly.
