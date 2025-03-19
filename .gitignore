@@ -1,0 +1,5 @@
+docker/config.yaml
+target/
+certs/
+*.pem
+.DS_Store
