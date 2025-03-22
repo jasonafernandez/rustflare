@@ -1,6 +1,9 @@
+use reqwest::Response;
+use reqwest::header;
 use reqwest::Client;
 use serde_json::json;
 use std::error::Error;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, serde::Deserialize)]
 pub struct CloudflareConfig {
