@@ -1,11 +1,19 @@
-use std::fs;
 use crate::StorageConfig;
+use std::fs;
+use std::path::Path;
 
-pub fn store_certificates(domain: &str, cert: String, key: String, storage_cfg: &StorageConfig) {
-    let path = format!("{}/{}", storage_cfg.certs_base_path, domain);
-    fs::create_dir_all(&path).expect("Failed to create cert directory");
-    fs::write(format!("{}/{}", path, storage_cfg.cert_file_name), cert)
-        .expect("Failed to write certificate");
-    fs::write(format!("{}/{}", path, storage_cfg.key_file_name), key)
-        .expect("Failed to write key");
+pub fn store_certificates(
+    domain: &str,
+    cert_pem: &[u8],
+    key_pem: &[u8],
+    config: &StorageConfig,
+) {
+    let domain_path = Path::new(&config.certs_base_path).join(domain);
+    fs::create_dir_all(&domain_path).unwrap();
+
+    let cert_path = domain_path.join(&config.cert_file_name);
+    let key_path = domain_path.join(&config.key_file_name);
+
+    fs::write(cert_path, cert_pem).unwrap();
+    fs::write(key_path, key_pem).unwrap();
 }

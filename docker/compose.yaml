@@ -1,12 +1,12 @@
 services:
   rustflare:
-    build: ..
+    image: rustflare
     container_name: rustflare
     restart: unless-stopped
     network_mode: "host"
     volumes:
+      - /home/laughingman/rustflare/docker/config.yaml:/app/config.yaml:ro
       - certs:/certs
-      - ./config.yaml:/config.yaml
 
 volumes:
   certs:

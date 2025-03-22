@@ -1,12 +1,14 @@
 [package]
 name = "rustflare"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
-acme-lib = "0.9.1"
-reqwest = { version = "0.11.14", features = ["json"] }
-tokio = { version = "1.18.0", features = ["full"] }
-serde = { version = "1.0.156", features = ["derive"] }
-serde_yaml = "0.9.18"
-dotenv = "0.15.0"
+acme2-eab = "0.5"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_yaml = "0.9"
+reqwest = { version = "0.11", features = ["rustls-tls"] }
+openssl = "0.10"
+serde_json = "1"
+base64 = "0.21"
