@@ -145,6 +145,9 @@ async fn request_certificate(domain: &str, config: &Config) -> Result<(), Box<dy
         &config.storage,
     );
 
+    cloudflare::delete_dns_challenge(domain, &dns_proof, &config.cloudflare).await?;
+
     println!("Certificate stored for domain: {}", domain);
+
     Ok(())
 }
